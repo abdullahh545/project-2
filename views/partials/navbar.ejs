@@ -1,0 +1,16 @@
+<nav>
+    <a href="/">Home</a>
+  <% if (user) { %>
+    <a href="/lists">Your Lists</a>
+    <a href="/lists/new">+ New List</a>
+    <a href="/auth/logout">Logout</a>
+    <span><%= user.username %></span>
+
+    <%} else{ %>
+    <a href="/auth/login">Login</a>
+    <a href="/auth/sign-up">Sign Up</a>
+    <%} %>
+
+
+    
+</nav>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Tasks</title>
+    <link rel="stylesheet" href="/style/style.css">
+
+</head>
+<body>
+  <%- include('../partials/navbar') %>
+<div class="lists">
+  <h1>Your Task Lists</h1>
+  <a href="/lists/new">+ New List</a>
+  </div>
+
+  <% if (lists.length === 0) { %>
+    <p>No task yet.</p>
+  <% } %>
+
+  <% lists.forEach(list => { %>
+    <div style="border: 1px solid #ccc; margin-bottom: 20px; padding: 10px;">
+      <h2><%= list.title %></h2>
+       <a href="/lists/<%= list._id %>/edit">Edit List</a>
+      <form action="/lists/<%= list._id %>/delete" method="POST" style="display:inline;">
+        <button type="submit">Delete List</button>
+      </form>
+
+<a href="/tasks/list/<%= list._id %>/tasks">+ Add Task</a>
+      <% if (list.tasks && list.tasks.length > 0) { %>
+       <ul>
+      <% list.tasks.forEach(task => { %>
+       <li>
+       <strong><%= task.title %></strong>: <%= task.description %>
+       <% if (task.completed) { %> ✅ <% } %>
+       <br/>
+              
+
+      <a href="/tasks/<%= task._id %>/edit">Edit</a>
+
+      <form action="/tasks/<%= task._id %>/delete" method="POST" style="display:inline;">
+
+      <button type="submit">Delete</button>
+      </form>
+      </li>
+      <% }) %>
+      </ul>
+   <% } else { %>
+     <p>No tasks in this list yet.</p>
+           <% } %>
+    </div>
+  <% }) %>
+</body>
+</html>
