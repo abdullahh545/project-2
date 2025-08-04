@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Tasks</title>
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/index.css">
 
 </head>
 <body>
   <%- include('../partials/navbar') %>
 <div class="lists">
   <h1>Your Task Lists</h1>
+  <div>
   <a href="/lists/new">+ New List</a>
+  </div>
   </div>
 
   <% if (lists.length === 0) { %>

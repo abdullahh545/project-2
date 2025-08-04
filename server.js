@@ -13,9 +13,8 @@ const session = require("express-session")
 const passUserToView = require('./middleware/passUserToView')
 const isSignedIn = require("./middleware/isSignedIn")
 const mongoose = require('mongoose');
+const list = require("./models/list")
 mongoose.connect(process.env.MONGODB_URI)
-
-app.use(express.static('public'));
 
 
 const listRoutes = require("./routes/list.routes")

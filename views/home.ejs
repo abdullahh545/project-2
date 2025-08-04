@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-      <link rel="stylesheet" href="/style/style.css">
+      <link rel="stylesheet" href="/home.css">
 
 </head>
 <body>
-    <%- include('partials/navbar') %>
+   <%- include('partials/navbar') %>
 
+ <% const date = new Date() %>
+
+
+  <div class="container">
+   
   <h1>Welcome, <%= user.username %>!</h1>
+  <p>Today's date: <%= date.toDateString() %></p>
   <p>This is your home page.</p>
   <a href="/lists">Go to your Lists</a>
   <br/>
   <a href="/auth/logout">Logout</a>
+  </div>
     
+<!-- <div class="progress-container">
+  <label>Task Completion</label>
+  <div class="progress-bar">
+</div> -->
+
+
 </body>
 </html>
