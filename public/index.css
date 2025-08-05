@@ -1,119 +1,232 @@
-/* public/index.css */
+/* List Index Page Styles */
+@import url('/main.css');
+@import url('/navbar.css');
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fafc;
-  margin: 30px 50px;
-  color: #222;
-}
-
+/* List Index Specific */
 .lists {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 2.4rem;
+.lists h1 {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
 }
 
-a {
-  color: #0052cc;
+.lists div {
+  margin-bottom: 2rem;
+}
+
+.lists a {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-a:hover {
-  color: #003d99;
+.lists a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-div[style] {
-  background: white;
-  border-radius: 8px;
-  padding: 18px 22px;
-  box-shadow: 0 2px 7px rgba(0,0,0,0.08);
-  margin-bottom: 18px;
-}
-
-ul {
-  margin-top: 12px;
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-button {
-  margin-left: 10px;
-  background-color: #ff5050;
-  border: none;
-  padding: 6px 10px;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.85rem;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #cc0000;
-}
-
-form {
-  display: inline;
-}
-
-
-
-.header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: rgba(255,255,255,0.95);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  z-index: 100;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.header-container {
+/* Main Content Layout */
+.main-content {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 0 8px;
+}
+
+.content-section {
+  flex: 1;
+  max-width: 800px;
+}
+
+/* List Cards - Reduced width */
+.list-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+  max-width: 100%;
+}
+
+.list-card:hover {
+  transform: translateY(-5px);
+}
+
+.list-card h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.list-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  border-bottom: 1px solid #ddd;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.navbar a {
-  color: #f0eeee;
+.list-actions a,
+.list-actions button {
+  padding: 8px 16px;
+  border-radius: 6px;
   text-decoration: none;
-  font-weight: 600;
-  padding: 8px 12px;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
-.navbar a:hover {
-  color: #007BFF;
+.list-actions a {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.list-actions button {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+}
+
+.list-actions a:hover,
+.list-actions button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.task-item {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateX(5px);
+}
+
+.task-item strong {
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.task-item p {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.task-actions a,
+.task-actions button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
   cursor: pointer;
+}
+
+.task-actions a {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.task-actions button {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+}
+
+.task-actions a:hover,
+.task-actions button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Lottie Animation - Bigger size */
+.lottie-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 1000px;
+  max-width: 700px;
+  flex-shrink: 0;
+  align-self: center;
+  margin-top: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .lottie-container {
+    order: -1;
+    margin-top: 2rem;
+    max-width: 350px;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .list-actions {
+    flex-direction: column;
+  }
+  
+  .task-actions {
+    flex-direction: column;
+  }
+  
+  .list-card {
+    padding: 1.5rem;
+  }
+  
+  .lottie-container {
+    max-width: 300px;
+    min-height: 200px;
+  }
 }
 
 

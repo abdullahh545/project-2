@@ -1,73 +1,105 @@
+/* Edit Page Styles */
+@import url('/main.css');
+@import url('/navbar.css');
 
-/* public/edit.css */
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #eef3f8;
-  padding: 40px;
-  color: #222;
+/* Edit Page Specific */
+.edit-container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-form {
-  background: white;
-  max-width: 460px;
-  padding: 26px 28px;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #444;
-}
-
-input[type="text"] {
+.edit-form {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  max-width: 600px;
   width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #bbb;
-  font-size: 1rem;
-  margin-bottom: 18px;
-  transition: border-color 0.3s ease;
+  animation: fadeIn 0.8s ease-out;
 }
 
-input[type="text"]:focus {
-  border-color: #0047b3;
+.edit-form h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
   outline: none;
 }
 
-button {
-  background-color: #0047b3;
+.form-group button {
   color: white;
-  padding: 14px 20px;
-  border-radius: 8px;
   border: none;
-  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
   width: 100%;
-  font-size: 1.05rem;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-  background-color: #003375;
+.form-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-a {
-  display: inline-block;
-  margin-top: 18px;
-  color: #666;
+.cancel-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cancel-link a {
+  color: #667eea;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-a:hover {
-  color: #0047b3;
+.cancel-link a:hover {
+  color: #764ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-form {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .edit-container {
+    padding: 1rem;
+  }
 }

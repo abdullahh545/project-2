@@ -1,19 +1,17 @@
 <header class="header">
   <div class="container">
-    <!-- Your logo or site title -->
-    <div class="logo">My Bucket List</div>
+    <div class="logo">Task List</div>
 
-    <!-- Your existing navbar -->
     <nav>
       <div class="navbar">
         <a href="/">Home</a>
         <% if (user) { %>
-          <a href="/lists">Your Lists</a>
-          <a href="/lists/new">+ New List</a>
-          <a href="/auth/logout">Logout</a>
+        <a href="/lists">Your Lists</a>
+        <a href="/lists/new">+ New List</a>
+        <a href="/auth/logout">Logout</a>
         <% } else { %>
-          <a href="/auth/login">Login</a>
-          <a href="/auth/sign-up">Sign Up</a>
+        <a href="/auth/login">Login</a>
+        <a href="/auth/sign-up">Sign Up</a>
         <% } %>
       </div>
     </nav>

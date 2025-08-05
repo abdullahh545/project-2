@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - My Bucket List</title>
     <link rel="stylesheet" href="/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
-
 <body>
-    <div id="container">
-            <%- include('../partials/navbar') %>
+   <%- include('../partials/navbar') %>
 
- <h1>Log in</h1>
-        <form action="/auth/login" method="post">
-                <div class="log">  
+<div id="container">
+    <div class="login-layout">
+    <!-- Lottie Animation -->
+  <div class="lottie-container">
+  <div id="login-animation"></div>
+  </div>
 
-            <div>
-            <label for="username">username:</label>
-            <input type="text" name="username" id="username">
-                </div>
-            <div>    
-            <label for="password">password:</label>
-            <input type="password" name="password" id="password">
-            </div>
-            <button>Login</button>
-        </form>
+    <div class="login-container">
+  <h1>Log in</h1>
+      <form action="/auth/login" method="post">
+    <div class="log">  
+    <div>
+   <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required>
+     </div>
+       <div>    
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required>
+    </div>
+    <button type="submit">Login</button>
+    </div>
+    </form>
+    </div>
+     </div>
+
+    <% if (error) { %>
+    <p class="error">
+    <%= error %>
+    </p>
+    <% } %>
     </div>
 
-    </div>
-   
-        <% if (error) { %>
-            <p style="color:red" class="error">
-                <%= error %>
-            </p>
-            <% } %>
-
+    <script>
+        // Load Lottie animation
+   lottie.loadAnimation({
+    container: document.getElementById('login-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/asset/Login.json'
+  })
+ </script>
 </body>
-
 </html>

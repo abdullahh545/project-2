@@ -3,54 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <link rel="stylesheet" href="/index2.css">
-
+    <title>All Tasks - My Bucket List</title>
+    <link rel="stylesheet" href="/index2.css">
 </head>
 <body>
-<%- include('../partials/navbar') %>
+    <%- include('../partials/navbar') %>
 
- <h1>All Tasks by List</h1>
- <% listsWithTasks.forEach(list => { %>
-   <section style="border: 1px solid gray; padding: 10px; margin: 10px 0;">
-   <h2><%= list.title %></h2>
-  <% if (list.tasks.length === 0) { %>
-           <p>No tasks yet.</p>
-   <% } else { %>
-        <ul>
-    <% list.tasks.forEach(task => { %>
-  <li>
-      <strong><%= task.title %></strong> — <%= task.description %>
-      <% if (task.completed) { %>
-     ✅
-     <% } else { %>
-        ❌
-      <% } %>
-      </li>
-      <% }) %>
-      </ul>
-      <% } %>
+    <div class="container">
+        <div class="task-index-container">
+            <div class="task-index-header">
+                <h1>All Tasks by List</h1>
+            </div>
 
-<a href="/tasks/list/<%= list._id %>/tasks">+ Add Task</a>
-    </section>
-  <% }) %>
+            <% listsWithTasks.forEach(list => { %>
+                <div class="list-section">
+                    <h2><%= list.title %></h2>
+                    
+                    <% if (list.tasks.length === 0) { %>
+                        <div class="empty-state">
+                            <p>No tasks yet.</p>
+                        </div>
+                    <% } else { %>
+                        <ul class="task-list">
+                            <% list.tasks.forEach(task => { %>
+                                <li class="task-item">
+                                    <strong><%= task.title %></strong>
+                                    <p><%= task.description %></p>
+                                    <% if (task.completed) { %>
+                                        <span class="task-status completed">✅ Completed</span>
+                                    <% } else { %>
+                                        <span class="task-status pending">❌ Pending</span>
+                                    <% } %>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% } %>
 
-  <div>
-       <h3><%= task.category %> → <%= task.title %></h3>
-        <p><%= task.description %></p>
-        <p>Status: <%= task.completed ? "✅ Completed" : "❌ Not Completed" %></p>
-        
-       <form action="/tasks/<%= task._id %>/edit" method="GET">
-            <button type="submit">Edit</button>
-        </form>
+                    <a href="/tasks/list/<%= list._id %>/tasks" class="add-task-link">+ Add Task</a>
+                </div>
+            <% }) %>
 
-        <form action="/tasks/<%= task._id %>/delete" method="POST">
+            <% if (typeof task !== 'undefined') { %>
+                <div class="task-details">
+                    <h3><%= task.category %> → <%= task.title %></h3>
+                    <p><%= task.description %></p>
+                    <p>Status: <%= task.completed ? "✅ Completed" : "❌ Not Completed" %></p>
+                    
+                    <div class="task-actions">
+                        <form action="/tasks/<%= task._id %>/edit" method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
 
-            <button type="submit">Delete</button>
-        </form>
- </div>
-
-    
-
+                        <form action="/tasks/<%= task._id %>/delete" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>

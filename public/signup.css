@@ -1,74 +1,140 @@
-/* public/signup.css */
+/* Signup Page Styles */
+@import url('/main.css');
+@import url('/navbar.css');
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #f0f0f0;
-}
-
+/* Signup Page Specific */
 .container2 {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 35px 45px;
-  border-radius: 12px;
-  width: 340px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-h1 {
+/* Main Layout for Signup */
+.signup-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.signup-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+  width: 100%;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.signup-container h1 {
   text-align: center;
-  margin-bottom: 28px;
-  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .sign-up div {
-  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
-label {
-  display: block;
+.sign-up label {
+  margin-bottom: 0.5rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  color: #2c3e50;
 }
 
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px 12px;
-  border: none;
-  border-radius: 6px;
+.sign-up input {
+  padding: 1rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
   font-size: 1rem;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  background: white;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+.sign-up input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
   outline: none;
-  box-shadow: 0 0 5px #66aaff;
 }
 
-button {
-  width: 100%;
-  padding: 13px;
-  background-color: #3366ff;
-  border: none;
-  border-radius: 8px;
+.sign-up button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #264d99;
-}
-
-.error {
-  color: #ff6666;
-  text-align: center;
-  margin-top: 12px;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sign-up button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Error Message */
+.error {
+  background: #ff6b6b;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Lottie Animation - Positioned to the left */
+.lottie-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  max-width: 300px;
+  flex-shrink: 0;
+  order: -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signup-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .signup-container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .container2 {
+    padding: 1rem;
+  }
+  
+  .lottie-container {
+    max-width: 250px;
+    min-height: 150px;
+    order: 0;
+  }
 }

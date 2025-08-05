@@ -1,33 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <link rel="stylesheet" href="/home.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bucket List - Home</title>
+    <link rel="stylesheet" href="/home.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  </head>
+  <body>
+    <%- include('partials/navbar') %> <% const date = new Date() %>
 
-</head>
-<body>
-   <%- include('partials/navbar') %>
+    <div class="container">
+      <div class="home-container">
+        <div class="welcome-section">
+          <h1>Welcome, <%= user.username %>!</h1>
+          <div class="date-display">
+            Today's date: <%= date.toDateString() %>
+          </div>
+          <p>
+            This is your personal Task list manager. Start creating and
+            organizing your dreams!
+          </p>
+        </div>
 
- <% const date = new Date() %>
+        <!-- Lottie Animation -->
+        <div class="lottie-container">
+          <div id="business-animation"></div>
+        </div>
 
+        <div class="action-buttons">
+          <a href="/lists" class="btn">Go to your Lists</a>
+          <a href="/auth/logout" class="btn btn-secondary">Logout</a>
+        </div>
 
-  <div class="container">
-   
-  <h1>Welcome, <%= user.username %>!</h1>
-  <p>Today's date: <%= date.toDateString() %></p>
-  <p>This is your home page.</p>
-  <a href="/lists">Go to your Lists</a>
-  <br/>
-  <a href="/auth/logout">Logout</a>
-  </div>
-    
-<!-- <div class="progress-container">
-  <label>Task Completion</label>
-  <div class="progress-bar">
-</div> -->
+        <div class="content-section">
+          <div class="features-grid">
+            <div class="feature-card">
+              <h3>Create Your Dreams</h3>
+              <p>
+                Start building your bucket list with personalized categories and
+                goals that matter to you.
+              </p>
+            </div>
+            <div class="feature-card">
+              <h3>Track Progress</h3>
+              <p>
+                Monitor your achievements and celebrate each milestone as you
+                work towards your dreams.
+              </p>
+            </div>
+            <div class="feature-card">
+              <h3>Stay Organized</h3>
+              <p>
+                Keep all your aspirations organized in one beautiful,
+                easy-to-use platform.
+              </p>
+            </div>
+          </div>
 
+          <!-- Home Animation on the right -->
+          <div class="home-animation">
+            <div id="home-feature-animation"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</body>
+    <script>
+      // Load Lottie animation for welcome section
+      lottie.loadAnimation({
+        container: document.getElementById("business-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "/asset/Businessman balancing on time unicycle.json",
+      });
+
+      // Load Lottie animation for features section
+      lottie.loadAnimation({
+        container: document.getElementById("home-feature-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "/asset/Checklist.json",
+      });
+    </script>
+  </body>
 </html>

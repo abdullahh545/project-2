@@ -3,36 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <link rel="stylesheet" href="/new2.css">
-
+    <title>Create New Task - My Bucket List</title>
+    <link rel="stylesheet" href="/new2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
     <%- include('../partials/navbar') %>
 
-    <h1>Create a New Task</h1>
-    
-   <% if (error) { %>
-  <p style="color:red;"><%= error %></p>
-<% } %>
+    <div class="task-creation-container">
+        <!-- Lottie Animation -->
+        <div class="lottie-container">
+            <div id="maintenance-animation"></div>
+        </div>
 
-<form action="/tasks/list/<%= listId %>/tasks" method="POST">
-    
-  <label for="title">Task Title:</label>
-  <input type="text" id="title" name="title" required>
+        <div class="task-creation-form">
+            <h1>Create a New Task</h1>
+            
+            <% if (error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
 
-  <label for="description">Task Description</label>
-  <textarea id="description" name="description" required></textarea>
+            <form action="/tasks/list/<%= listId %>/tasks" method="POST">
+                <div class="form-group">
+                    <label for="title">Task Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
 
-  <label for="category">Category</label>
-  <input type="text" id="category" name="category" required>
+                <div class="form-group">
+                    <label for="description">Task Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
 
-  <button type="submit">Create Task</button>
-</form>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" required>
+                </div>
 
+                <div class="form-group">
+                    <button type="submit">Create Task</button>
+                </div>
+            </form>
 
-    </form>
+            <div class="back-link">
+                <a href="/lists">← Back To Lists</a>
+            </div>
+        </div>
+    </div>
 
-    <a href="/lists">Back To Lists</a>
+    <script>
+        // Load Lottie animation
+        lottie.loadAnimation({
+            container: document.getElementById('maintenance-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/asset/Maintenance.json'
+        });
+    </script>
 </body>
 </html>

@@ -3,31 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up - My Bucket List</title>
     <link rel="stylesheet" href="/signup.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
+
+  <%- include('../partials/navbar') %>
+
     <div class="container2">
-        <%- include('../partials/navbar') %>
+      
 
-    <h1>Sign Up</h1>
-    <form action="/auth/sign-up" method="post">
-        <div class="sign-up">
-        <div>
-        <label for="username">username:</label>
-        <input type="text" name="username" id="username">
+        <div class="signup-layout">
+            <!-- Lottie Animation -->
+            <div class="lottie-container">
+                <div id="signup-animation"></div>
+            </div>
+
+            <div class="signup-container">
+                <h1>Sign Up</h1>
+                <form action="/auth/sign-up" method="post">
+                    <div class="sign-up">
+                        <div>
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" id="username" required>
+                        </div>
+
+                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" required>
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <div>
-        <label for="password">password:</label>
-        <input type="password" name="password" id="password">
-        </div>
-        <button>Sign Up</button>
-    </form>
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
     </div>
-</div>
-    <% if (error) { %>
-  <p style="color:red" class="error"><%= error %></p>
-<% } %>
+
+    <script>
+        // Load Lottie animation
+        lottie.loadAnimation({
+            container: document.getElementById('signup-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/asset/Login.json'
+        });
+    </script>
 </body>
 </html>
