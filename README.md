@@ -1,6 +1,6 @@
-# 🎯 My Bucket List - Personal Dream Manager
+# 🎯 My Task List - Personal Dream Manager
 
-A beautiful and intuitive web application that helps you create, organize, and track your personal bucket list goals. Built with Node.js, Express, MongoDB, and EJS templating engine.
+A beautiful and intuitive web application that helps you create, organize, and track your personal Task list goals. Built with Node.js, Express, MongoDB, and EJS templating engine.
 
 ## ✨ Features
 
