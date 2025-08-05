@@ -1,4 +1,4 @@
-# 🎯 My Task List - Personal Dream ManagerA beautiful and intuitive web application that helps you create, organize, and track your personal Task list goals. Built with Node.js, Express, MongoDB, and EJS templating engine.
+# 🎯 My Task List - 
 
 Hi, my name is Abdullah, and this is my Task List Web Application — a full-stack project built using Node.js, Express, MongoDB, and EJS.
 
